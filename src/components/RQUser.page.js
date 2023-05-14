@@ -1,18 +1,34 @@
 import axios from "axios";
+import { useState } from "react";
 import { useQuery } from "react-query"; 
 
 const fetchUsers = () => {
     return axios.get("http://localhost:3001/users")
 }
+//Task:-
+// combing polling with callback
+// use refetchinterval to poll data on every 3 sec
+// behind scene chage or add data in db.json
+ //data.length is 12 or any error then stop refetching
 
 const RQUserPage = () => {
 
+    const [flag, setFlag] = useState(false);
+
     const onSuccess = (data) => {
         console.log("onSuccess called", data)
+        if(data.data.length === 14) {
+            console.log("success")
+            setFlag(true)
+        }
     }
 
     const onError = (error) => {
         console.log("onError called", error)
+        if(error.message) {
+            console.log("Error")
+            setFlag(true)
+        }
     }
 
     const { 
@@ -30,18 +46,17 @@ const RQUserPage = () => {
             
             // refetchOnMount: false
             // refetchOnMount: 'always'
-            //refetchOnMount: true,
+            refetchOnMount: true,
             
             // refetchOnWindowFocus: false
             // refetchOnWindowFocus: 'always'
-            //refetchOnWindowFocus: true,
+            refetchOnWindowFocus: true,
 
             //refetchInterval: false,
-            // refetchInterval: 2000
+             refetchInterval: flag === true ? false : 3000,
 
             //refetchIntervalInBackground: true
 
-            enabled: false,
             onSuccess: onSuccess,
             onError: onError
         }
@@ -59,7 +74,7 @@ const RQUserPage = () => {
     return (
         <div>
             RQUserPage Page
-            <button onClick={refetch}>Click me</button>
+            {/* <button onClick={refetch}>Click me</button> */}
             <ul>
                 {getUsers?.data?.map((user) => {
                     return (
