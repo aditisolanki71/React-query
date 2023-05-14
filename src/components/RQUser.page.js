@@ -17,18 +17,18 @@ const RQUserPage = () => {
 
     const onSuccess = (data) => {
         console.log("onSuccess called", data)
-        if(data.data.length === 14) {
-            console.log("success")
-            setFlag(true)
-        }
+        // if(data.data.length === 14) {
+        //     console.log("success")
+        //     setFlag(true)
+        // }
     }
 
     const onError = (error) => {
         console.log("onError called", error)
-        if(error.message) {
-            console.log("Error")
-            setFlag(true)
-        }
+        // if(error.message) {
+        //     console.log("Error")
+        //     setFlag(true)
+        // }
     }
 
     const { 
@@ -58,7 +58,19 @@ const RQUserPage = () => {
             //refetchIntervalInBackground: true
 
             onSuccess: onSuccess,
-            onError: onError
+            onError: onError,
+            select: (data) => {
+                console.log("Select data",data)
+                const userNames = data.data.map(user => user.name);
+                const userEmails = data.data.map(user => user.email);
+                const updatedData = {
+                    userNames,
+                    userEmails
+                }
+                console.log("updated",updatedData)
+                return updatedData;
+                // return data;
+            }
         }
     ) 
 
@@ -76,9 +88,14 @@ const RQUserPage = () => {
             RQUserPage Page
             {/* <button onClick={refetch}>Click me</button> */}
             <ul>
-                {getUsers?.data?.map((user) => {
+                {/* {getUsers?.data?.map((user) => {
                     return (
                         <li key={user.id}>{user.name}</li>
+                    )
+                })} */}
+                {getUsers?.userEmails?.map((email) => {
+                    return (
+                        <li key={email}>{email}</li>
                     )
                 })}
             </ul>
