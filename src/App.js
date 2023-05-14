@@ -7,7 +7,8 @@ import NoMatch from './components/NoMatch.page';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import RQUserDetail from './components/RQUserDetail';
 import ParallelQuery from './components/RQParallelQuery.page';
-import RQDynamicParallelQueryPage from "./components/RQDynamicParallelQuery.page"
+import RQDynamicParallelQueryPage from "./components/RQDynamicParallelQuery.page";
+import RQDependentQueriesPage from "./components/DependentQueries.page"
 const client = new QueryClient();
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
             <Link to="/rq-dynamic-parallel" style={{ padding: 5 }}>
             RQ Dynamic Parallel Query
             </Link>
+            <Link to="/rq-dependent" style={{ padding: 5 }}>
+            RQ Dependent Query
+            </Link>
         </nav>
         <Routes>
           <Route path="/rqusers/:userId" element={<RQUserDetail />} />
@@ -37,6 +41,7 @@ function App() {
           <Route path="/rqusers"element={<RQUserPage/>} />
           <Route path="/rq-parallel"element={<ParallelQuery/>} />
           <Route path="/rq-dynamic-parallel"element={<RQDynamicParallelQueryPage userIds={[1,2,3]}/>} />
+          <Route path="/rq-dependent"element={<RQDependentQueriesPage email="aditisolanki@gmail.com"/>} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>

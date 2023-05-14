@@ -245,7 +245,7 @@
     },
     {
       "name": "Aditi Solanki",
-      "email": "aa",
+      "email": "aditisolanki@gmail.com",
       "phone": "aa",
       "id": 13
     }
@@ -253,13 +253,13 @@
   "posts": [
     [
       {
-        "userId": 1,
+        "userId": 13,
         "id": 1,
         "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
         "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
       },
       {
-        "userId": 1,
+        "userId": 13,
         "id": 2,
         "title": "qui est esse",
         "body": "est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"
@@ -301,7 +301,7 @@
         "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae"
       },
       {
-        "userId": 1,
+        "userId": 13,
         "id": 9,
         "title": "nesciunt iure omnis dolorem tempora et accusantium",
         "body": "consectetur animi nesciunt iure dolore\nenim quia ad\nveniam autem ut quam aut nobis\net est aut quod aut provident voluptas autem voluptas"
@@ -853,5 +853,20 @@
         "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
       }
     ]
+  ],
+  "myUser": [
+
+  ],
+  "myUsers": [
+    {
+      "email": "aditisolanki@gmail.com",
+      "channelId": "codevolution"
+    }
+  ],
+  "channels" : [
+    {
+      "id": "codevolution",
+      "courses": ["react", "vue", "angular"]
+    }
   ]
 }
