@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useQuery } from "react-query"; 
 import { useUsersData } from "../components/hooks/useUsersData"
+import { Link } from "react-router-dom";
 
 //Task:-
 // combing polling with callback
@@ -53,7 +54,9 @@ const RQUserPage = () => {
             <ul>
                 {getUsers?.data?.map((user) => {
                     return (
-                        <li key={user.id}>{user.name}</li>
+                        <li key={user.id}>
+                            <Link to={`/rqusers/${user.id}`}>{user.name}</Link>
+                        </li>
                     )
                 })}
                 {/* {getUsers?.userEmails?.map((email) => {

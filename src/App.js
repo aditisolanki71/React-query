@@ -5,6 +5,7 @@ import RQUserPage from './components/RQUser.page';
 import { QueryClient, QueryClientProvider} from "react-query"
 import NoMatch from './components/NoMatch.page';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import RQUserDetail from './components/RQUserDetail';
 
 const client = new QueryClient();
 
@@ -24,9 +25,10 @@ function App() {
             </Link>
         </nav>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+        <Route path="/rqusers/:userId" element={<RQUserDetail />} />
           <Route path="/Users" element={<UsersPage />} />
           <Route path="/rqusers"element={<RQUserPage/>} />
+          <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </Router>
