@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useQuery } from "react-query"; 
+import { useUsersData } from "../components/hooks/useUsersData"
 
-const fetchUsers = () => {
-    return axios.get("http://localhost:3001/users")
-}
 //Task:-
 // combing polling with callback
 // use refetchinterval to poll data on every 3 sec
@@ -37,42 +35,7 @@ const RQUserPage = () => {
             isError, 
             error,
             refetch
-        } = useQuery(
-        "fetch-users",
-        fetchUsers,
-        {
-            // cacheTime: 5 * 60 * 60,
-            // staleTime: 0,
-            
-            // refetchOnMount: false
-            // refetchOnMount: 'always'
-            refetchOnMount: true,
-            
-            // refetchOnWindowFocus: false
-            // refetchOnWindowFocus: 'always'
-            refetchOnWindowFocus: true,
-
-            //refetchInterval: false,
-             refetchInterval: flag === true ? false : 3000,
-
-            //refetchIntervalInBackground: true
-
-            onSuccess: onSuccess,
-            onError: onError,
-            select: (data) => {
-                console.log("Select data",data)
-                const userNames = data.data.map(user => user.name);
-                const userEmails = data.data.map(user => user.email);
-                const updatedData = {
-                    userNames,
-                    userEmails
-                }
-                console.log("updated",updatedData)
-                return updatedData;
-                // return data;
-            }
-        }
-    ) 
+        } = useUsersData(onSuccess, onError)
 
     if(isLoading) {
         return <h2>Loading RQUsers...</h2>
@@ -88,16 +51,16 @@ const RQUserPage = () => {
             RQUserPage Page
             {/* <button onClick={refetch}>Click me</button> */}
             <ul>
-                {/* {getUsers?.data?.map((user) => {
+                {getUsers?.data?.map((user) => {
                     return (
                         <li key={user.id}>{user.name}</li>
                     )
-                })} */}
-                {getUsers?.userEmails?.map((email) => {
+                })}
+                {/* {getUsers?.userEmails?.map((email) => {
                     return (
                         <li key={email}>{email}</li>
                     )
-                })}
+                })} */}
             </ul>
         </div>
     )
