@@ -1,10 +1,19 @@
 import axios from "axios";
 import { useQuery } from "react-query"; 
 
+const fetchUsers = () => {
+    return axios.get("http://localhost:3001/users")
+}
+
 const RQUserPage = () => {
-    const { data : getUsers, isLoading, isError, error} = useQuery("fetch-users", () => {
-        return axios.get("http://localhost:3001/users")
-    }) 
+    const { data : getUsers, isLoading, isError, error} = useQuery(
+        "fetch-users",
+        fetchUsers,
+        {
+            cacheTime: 5000 * 60,
+            staleTime: 30000
+        }
+    ) 
 
     if(isLoading) {
         return <h2>Loading RQUsers...</h2>
