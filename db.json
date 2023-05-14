@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "name": "Leanne Graham122",
+      "name": "Leanne Graham12 adit11",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "address": {
@@ -242,12 +242,6 @@
       "email": "aa",
       "phone": "aa",
       "id": 12
-    },
-    {
-      "name": "aditinew",
-      "email": "aditi.solanki@gmail.com",
-      "phone": "1234",
-      "id": 13
     }
   ]
 }

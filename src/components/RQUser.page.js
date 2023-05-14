@@ -6,12 +6,32 @@ const fetchUsers = () => {
 }
 
 const RQUserPage = () => {
-    const { data : getUsers, isLoading, isError, error} = useQuery(
+    const { 
+            data : getUsers,
+            isLoading, 
+            isError, 
+            error,
+        } = useQuery(
         "fetch-users",
         fetchUsers,
         {
-            cacheTime: 5000 * 60,
-            staleTime: 30000
+            // cacheTime: 5 * 60 * 60,
+            // staleTime: 0,
+            
+            // refetchOnMount: false
+            // refetchOnMount: 'always'
+            //refetchOnMount: true,
+            
+            // refetchOnWindowFocus: false
+            // refetchOnWindowFocus: 'always'
+            //refetchOnWindowFocus: true,
+
+            //refetchInterval: false,
+             refetchInterval: 2000,
+
+            refetchIntervalInBackground: true
+
+           
         }
     ) 
 
