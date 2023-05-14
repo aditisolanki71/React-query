@@ -1,6 +1,5 @@
-import axios from "axios";
+
 import { useState } from "react";
-import { useQuery } from "react-query"; 
 import { useUsersData } from "../components/hooks/useUsersData"
 import { Link } from "react-router-dom";
 
