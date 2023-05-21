@@ -8,10 +8,12 @@ const fetchPosts = () => {
     return axios.get('http://localhost:3001/posts')
 }
 
+
 const RQParallelQuery = () => {
     const { data: users } = useQuery('fetch-users',fetchUsers)
-    const { data: posts } = useQuery('fetch-users',fetchPosts)
-   
+    const { data: posts } = useQuery('fetch-posts',fetchPosts)
+    console.log("users",users)
+    console.log("posts",posts)
     return (
         <div>
             RQ Parallel query
@@ -24,8 +26,8 @@ const RQParallelQuery = () => {
             </ul>
             <h2>POSTS</h2>
             <ul>
-                {posts?.data?.map(post => {
-                    return <li>{post.name}</li>
+                {posts?.data[0]?.map(post => {
+                    return <li>abc{post?.title}</li>
                 })
             }
             </ul>

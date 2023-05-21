@@ -13,19 +13,19 @@ const fetchCourrsesByChannelId = (channelId) => {
 const RQDependentQueriesPage = ({ email }) => {
     console.log("dependent email is",email)
     //now you have particular user
-    const {data: user} = useQuery(['user',email], fetchUserByEmail(email) )
-    console.log("user is",user)
+    // const {data: user} = useQuery(['user',email], fetchUserByEmail(email) )
+    // console.log("user is",user)
     
-    //now access posts from particular userid
-    const channelId = user?.data.channelId;
-    console.log("channel id",channelId)
+    // //now access posts from particular userid
+    // const channelId = user?.data.channelId;
+    // console.log("channel id",channelId)
 
-    const {data: channels} = useQuery(
-        ['courses',channelId],
-        () => fetchCourrsesByChannelId(channelId), {
-        enabled: !!channelId
-    })
-    console.log("channels",channels)
+    // const {data: channels} = useQuery(
+    //     ['courses',channelId],
+    //     () => fetchCourrsesByChannelId(channelId), {
+    //     enabled: !!channelId
+    // })
+    // console.log("channels",channels)
 
     return (
         <div>RQ Dependent queries</div>

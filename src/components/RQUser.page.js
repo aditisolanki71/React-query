@@ -45,6 +45,7 @@ const RQUserPage = () => {
         return <h2>{error.message}</h2>
     }
 
+    console.log("rx user loadig",isLoading)
     console.log("RX", getUsers)
     return (
         <div>
