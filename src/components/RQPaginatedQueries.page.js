@@ -7,7 +7,7 @@ const fetchColors = (pageNumber) => {
 }
 
 // http://localhost:3001/colors?_limit=2&_page=1
-const PaginatedQueriesPage = () => {
+const RQPaginatedQueriesPage = () => {
     const [pageNumber,setPageNumber] = useState(1);
     const { data: colors,isLoading, isError, error } = useQuery(
         ['fetch-colors', pageNumber],
@@ -52,4 +52,4 @@ const PaginatedQueriesPage = () => {
 
     )
 }
-export default PaginatedQueriesPage;
+export default RQPaginatedQueriesPage;

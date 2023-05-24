@@ -10,7 +10,8 @@ import ParallelQuery from './components/RQParallelQuery.page';
 import RQDynamicParallelQueryPage from "./components/RQDynamicParallelQuery.page";
 import RQDependentQueriesPage from "./components/DependentQueries.page"
 import RQUserInitialData from './components/RQUserInitialData.page';
-import PaginatedQueriesPage from './components/PaginatedQueries.page';
+import RQPaginatedQueriesPage from './components/RQPaginatedQueries.page';
+import RQInfiniteQueriesPage from './components/RQInfinitequeries.page';
 const client = new QueryClient();
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
             <Link to="/rq-paginated" style={{ padding: 5 }}>
             RQ Paginated Queries
             </Link>
+            <Link to="/rq-infinite-query" style={{ padding: 5 }}>
+            RQ Infinite Queries
+            </Link>
         </nav>
         <Routes>
           <Route path="/rqusers/:userId" element={<RQUserDetail />} />
@@ -51,7 +55,8 @@ function App() {
           <Route path="/rq-dynamic-parallel"element={<RQDynamicParallelQueryPage userIds={[1,2,3]}/>} />
           <Route path="/rq-dependent"element={<RQDependentQueriesPage email="aditisolanki@gmail.com"/>} />
           <Route path="/rq-user-initial" element={<RQUserInitialData/>} />
-          <Route path="/rq-paginated" element={<PaginatedQueriesPage/>} />
+          <Route path="/rq-paginated" element={<RQPaginatedQueriesPage/>} />
+          <Route path="/rq-infinite-query" element={<RQInfiniteQueriesPage/>} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
