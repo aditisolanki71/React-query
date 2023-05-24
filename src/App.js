@@ -12,6 +12,7 @@ import RQDependentQueriesPage from "./components/DependentQueries.page"
 import RQUserInitialData from './components/RQUserInitialData.page';
 import RQPaginatedQueriesPage from './components/RQPaginatedQueries.page';
 import RQInfiniteQueriesPage from './components/RQInfinitequeries.page';
+import MutationsRQUserPage from './components/MutationsRQUsers.page';
 const client = new QueryClient();
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
             <Link to="/rq-infinite-query" style={{ padding: 5 }}>
             RQ Infinite Queries
             </Link>
+            <Link to="/mutaions-rq-users" style={{ padding: 5 }}>
+            Mutations RQ Users
+            </Link>
         </nav>
         <Routes>
           <Route path="/rqusers/:userId" element={<RQUserDetail />} />
@@ -57,6 +61,7 @@ function App() {
           <Route path="/rq-user-initial" element={<RQUserInitialData/>} />
           <Route path="/rq-paginated" element={<RQPaginatedQueriesPage/>} />
           <Route path="/rq-infinite-query" element={<RQInfiniteQueriesPage/>} />
+          <Route path="/mutaions-rq-users" element={<MutationsRQUserPage/>} />
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>

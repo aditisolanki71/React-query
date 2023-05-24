@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useQuery } from "react-query"; 
+import { useQuery, useMutation } from "react-query"; 
 const fetchUsers = () => {
     return axios.get("http://localhost:3001/users")
 }
@@ -26,4 +26,9 @@ export const useUsersData = (onSuccess, onError) => {
         }
     ) 
 }
-export default useUsersData;
+const addUser = (user) => {
+    return axios.post("http://localhost:3001/users", user)
+}
+export const useAddUserData = () => {
+    return useMutation(addUser)
+}

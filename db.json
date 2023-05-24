@@ -248,6 +248,26 @@
       "email": "aditisolanki@gmail.com",
       "phone": "aa",
       "id": 13
+    },
+    {
+      "name": "monika",
+      "contact": "1111",
+      "id": 14
+    },
+    {
+      "name": "monika",
+      "contact": "1111",
+      "id": 15
+    },
+    {
+      "name": "monika",
+      "contact": "1111",
+      "id": 16
+    },
+    {
+      "name": "monika",
+      "contact": "11112",
+      "id": 17
     }
   ],
   "posts": [
@@ -854,25 +874,27 @@
       }
     ]
   ],
-  "myUser": [
-
-  ],
+  "myUser": [],
   "myUsers": [
     {
       "email": "aditisolanki@gmail.com",
       "channelId": "codevolution"
     }
   ],
-  "channels" : [
+  "channels": [
     {
       "id": "codevolution",
-      "courses": ["react", "vue", "angular"]
+      "courses": [
+        "react",
+        "vue",
+        "angular"
+      ]
     }
   ],
   "colors": [
     {
-        "id": 1,
-        "label": "Red"
+      "id": 1,
+      "label": "Red"
     },
     {
       "id": 2,
