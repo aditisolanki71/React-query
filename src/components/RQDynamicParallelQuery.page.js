@@ -14,10 +14,14 @@ const RQDynamicParallelQueryPage = ({ userIds }) => {
             }
         })
     )
-    console.log("Query Results",queryResults)
+    console.log("Dynamic Query Results",queryResults)
     return (
         <div>
             RQ Dynamic Parallel Query:-
+            Please check console
+            <ul>
+               {queryResults?.map?.data?.data(res => <li>{res.name}</li>)}
+            </ul>
         </div>
     )
 }
