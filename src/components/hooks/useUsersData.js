@@ -32,8 +32,14 @@ const addUser = (user) => {
 export const useAddUserData = () => {
     const queryClient = useQueryClient();
     return useMutation(addUser, {
-        onSuccess: () => {
-            queryClient.invalidateQueries('fetch-users')
+        onSuccess: (data) => {
+            // queryClient.invalidateQueries('fetch-users')
+            queryClient.setQueriesData('fetch-users', (oldQueryData) => {
+                return {
+                    ...oldQueryData,
+                    data: [...oldQueryData.data, data.data]
+                }
+            })
         }
     })
 }
