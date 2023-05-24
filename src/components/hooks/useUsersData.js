@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useQuery, useMutation } from "react-query"; 
+import { useQuery, useMutation, useQueryClient } from "react-query"; 
 const fetchUsers = () => {
     return axios.get("http://localhost:3001/users")
 }
@@ -30,5 +30,10 @@ const addUser = (user) => {
     return axios.post("http://localhost:3001/users", user)
 }
 export const useAddUserData = () => {
-    return useMutation(addUser)
+    const queryClient = useQueryClient();
+    return useMutation(addUser, {
+        onSuccess: () => {
+            queryClient.invalidateQueries('fetch-users')
+        }
+    })
 }
