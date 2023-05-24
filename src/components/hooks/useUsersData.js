@@ -1,7 +1,10 @@
 import axios from "axios";
 import { useQuery, useMutation, useQueryClient } from "react-query"; 
+import { request } from "../../utils/axios-utils";
+
 const fetchUsers = () => {
-    return axios.get("http://localhost:3001/users")
+    //return axios.get("http://localhost:3001/users")
+    return request({ url: '/users'})
 }
 
 export const useUsersData = (onSuccess, onError) => {
@@ -27,7 +30,8 @@ export const useUsersData = (onSuccess, onError) => {
     ) 
 }
 const addUser = (user) => {
-    return axios.post("http://localhost:3001/users", user)
+    //return axios.post("http://localhost:3001/users", user)
+    return request({ url: '/users', method: "post", data: user})
 }
 export const useAddUserData = () => {
     const queryClient = useQueryClient();
